@@ -6,6 +6,8 @@ import imageLoader from '../imageLoader';
 import styles from '../styles/Home.module.css'
 import { Character, GetCharacterResults } from '../types';
 
+//TODO: Currently adding the Linking for each specific character page.
+
 const Home: NextPage<{characters: Character[]}> = ({characters}: any) => {
   return (
     <div className={styles.container}>
@@ -16,18 +18,18 @@ const Home: NextPage<{characters: Character[]}> = ({characters}: any) => {
       </Head>
       {characters.map((character:any) =>{
         return 
+        <>  
         <div key={character.id}>
           <Link rel="icon" href="/favicon.ico" />
-            {character.name}
+          {character.name}
           </Link>
-          <Image 
+          <Image
             loader={imageLoader}
             unoptimized
             src={character.image}
             alt={character.name}
             width="200"
-            height="200"
-          />
+            height="200" />
         </div>
       })}
     </div>
