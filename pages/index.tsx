@@ -17,21 +17,20 @@ const Home: NextPage<{characters: Character[]}> = ({characters}: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {characters.map((character:any) =>{
-        return 
-        <>  
-        <div key={character.id}>
-          <Link rel="icon" href="/favicon.ico" />
-          {character.name}
-          </Link>
-          <Image
-            loader={imageLoader}
-            unoptimized
-            src={character.image}
-            alt={character.name}
-            width="200"
-            height="200" />
-        </div>
-      })}
+        return(
+          <div key={character.id}>
+            <Link href={`character/${character.id}`}>
+              {character.name}
+            </Link>
+            <Image
+              loader={imageLoader}
+              unoptimized
+              src={character.image}
+              alt={character.name}
+              width="200"
+              height="200" />
+          </div>
+        )})}
     </div>
   )
 }
